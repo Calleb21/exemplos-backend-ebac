@@ -1,2 +1,2 @@
 # exemplos-backend-ebac
-Exemplos dos módulos feitos durante o curso de Backend Java da EBAC.
+Exemplos criados durnte os módulos do curso de Backend Java da EBAC.
