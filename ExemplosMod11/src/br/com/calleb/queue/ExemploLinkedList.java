@@ -1,0 +1,33 @@
+package br.com.calleb.queue;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
+public class ExemploLinkedList {
+
+    public static void main(String[] args) {
+        exemploListaSimples();
+        exemploListaSimples1();
+    }
+
+    private static void exemploListaSimples() {
+        System.out.println("****** exemploListaSimples ******");
+        Deque<String> lista = new LinkedList<>();
+        lista.add("João da Silva");
+        lista.add("Antonio Sousa");
+        lista.add("Lúcia Ferreira");
+        System.out.println(lista);
+        System.out.println("");
+    }
+
+    private static void exemploListaSimples1() {
+        System.out.println("****** exemploSimples1 ******");
+        Deque<String> lista = new LinkedList<>();
+        lista.add("João da Silva");
+        lista.add("Antonio Sousa");
+        lista.add("Lúcia Ferreira");
+        lista.addFirst("Rodrigo");
+        System.out.println(lista);
+        System.out.println("");
+    }
+}
