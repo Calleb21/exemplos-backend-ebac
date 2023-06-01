@@ -360,8 +360,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(null, "Nenhum cliente selecionado", "ERRO", JOptionPane.INFORMATION_MESSAGE);
     }
-}
-//GEN-LAST:event_bntAtulizarActionPerformed
+} //GEN-LAST:event_bntAtulizarActionPerformed
 
     /**
      * @param args the command line arguments
