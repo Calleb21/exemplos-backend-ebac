@@ -42,5 +42,5 @@ public class Cliente {
 
     public int getValorTotal(){
         return 20;
-    }
+     }
 }
