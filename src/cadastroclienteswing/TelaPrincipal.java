@@ -320,36 +320,48 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bntLimparActionPerformed
 
-    private void bntAtulizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAtulizarActionPerformed
-        String nome = txtNome.getText();
-        String cpf = txtCPF.getText();
-        String telefone = txtTelefone.getText();
-        String endereco = txtEndereco.getText();
-        String numero = txtNumero.getText();
-        String cidade = txtCidade.getText();
-        String estado = txtEstado.getText();
+    private void bntAtulizarActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    // Obtenha os dados do formulário
+    String nome = txtNome.getText();
+    String cpf = txtCPF.getText();
+    String telefone = txtTelefone.getText();
+    String endereco = txtEndereco.getText();
+    String numero = txtNumero.getText();
+    String cidade = txtCidade.getText();
+    String estado = txtEstado.getText();
+        
+    if (!isCamposValidos(nome, telefone, endereco, numero, cidade, estado)) {
+        JOptionPane.showMessageDialog(null, "Existem campos a serem preenchidos", "ATENÇÃO", JOptionPane.INFORMATION_MESSAGE);
+        return;
+    }
 
-        if (!isCamposValidos(nome, cpf, telefone, endereco, numero, cidade, estado)) {
-            JOptionPane.showMessageDialog(null, "Existem campos a serem preenchidos", "ATENÇÃO", JOptionPane.INFORMATION_MESSAGE);
+    int linhaSelecionada = tabelaClientes.getSelectedRow();
+
+    if (linhaSelecionada >= 0) {
+        Long cpfAtual = (Long) tabelaClientes.getValueAt(linhaSelecionada, 1);
+
+        if (!cpfAtual.equals(cpf)) {
+            JOptionPane.showMessageDialog(null, "O CPF não pode ser alterado", "ATENÇÃO", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-
         Cliente cliente = new Cliente(nome, cpf, telefone, endereco, numero, cidade, estado);
-
+        
         this.clienteDAO.atualizar(cliente);
 
-        int linhaSelecionada = tabelaClientes.getSelectedRow();
         modelo.setValueAt(cliente.getNome(), linhaSelecionada, 0);
-        modelo.setValueAt(cliente.getCpf(), linhaSelecionada, 1);
-        modelo.setValueAt(cliente.getTel(), linhaSelecionada, 2);
-        modelo.setValueAt(cliente.getEnd(), linhaSelecionada, 3);
+        modelo.setValueAt(cliente.getTelefone(), linhaSelecionada, 2);
+        modelo.setValueAt(cliente.getEndereco(), linhaSelecionada, 3);
         modelo.setValueAt(cliente.getNumero(), linhaSelecionada, 4);
         modelo.setValueAt(cliente.getCidade(), linhaSelecionada, 5);
         modelo.setValueAt(cliente.getEstado(), linhaSelecionada, 6);
 
         JOptionPane.showMessageDialog(null, "Cadastro do cliente atualizado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         limparCampos();
-    }//GEN-LAST:event_bntAtulizarActionPerformed
+    } else {
+        JOptionPane.showMessageDialog(null, "Nenhum cliente selecionado", "ERRO", JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+//GEN-LAST:event_bntAtulizarActionPerformed
 
     /**
      * @param args the command line arguments
