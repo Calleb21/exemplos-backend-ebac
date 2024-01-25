@@ -1,0 +1,15 @@
+br\com\calleb\dao\generic\IClienteDAO.class
+br\com\calleb\services\generic\IGenericService.class
+br\com\calleb\exceptions\TipoElementoNaoConhecidoException.class
+br\com\calleb\exceptions\MaisDeUmRegistroException.class
+br\com\calleb\dao\generic\IGenericDAO.class
+br\com\calleb\exceptions\DAOException.class
+br\com\calleb\service\ClienteService.class
+br\com\calleb\exceptions\TipoChaveNaoEncontradaException.class
+br\com\calleb\exceptions\TableException.class
+br\com\calleb\domain\Persistente.class
+br\com\calleb\services\generic\GenericService.class
+br\com\calleb\controller\ClienteController.class
+br\com\calleb\domain\Cliente.class
+br\com\calleb\service\IClienteService.class
+br\com\calleb\dao\generic\GenericDAO.class
